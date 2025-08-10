@@ -1,0 +1,6 @@
+path: C:/Users/bibik/OneDrive/Desktop/lisence
+train: images/train
+val: images/val
+
+nc: 1
+names: ['license_plate']
