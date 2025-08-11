@@ -12,22 +12,30 @@ This project aims to facilitate privacy-preserving applications in surveillance,
 
 ## 📂 Project Structure
 
-license/
-├── data.yaml
-├── images/
-│ ├── train/
-│ └── val/
-├── labels/
-│ ├── train/
-│ └── val/
-├── examples/
-│ ├── input1.jpg
-│ ├── output1.jpg
-│ ├── input2.jpg
-│ ├── output2.jpg
-│ ├── input3.jpg
-│ ├── output3.jpg
-|__readme.md
+
+```plaintext
+.
+├── README.md
+└── license/
+    ├── YOLO_v10/           # YOLOv10 trained model & results
+    ├── YOLO_v12/           # YOLOv12 trained model & results
+    ├── anonymization/      # Scripts & weights for anonymization
+    │   ├── anonymize_v8_img.py
+    │   ├── anonymize_v8_vid.py
+    │   ├── anonymize_v10_img.py
+    │   ├── anonymize_v10_vid.py
+    │   ├── anonymize_v12_img.py
+    │   ├── anonymize_v12_vid.py
+    │   ├── best_v8.pt
+    │   ├── best_v10.pt
+    │   ├── best_v12.pt
+    │   ├── requirements.txt
+    │   ├── sample_inputs/      # Sample images & videos for testing
+    │   └── sample_outputs/     # Output after anonymization
+    ├── examples/           # Detection examples
+    ├── data.yaml           # Dataset configuration
+    └── runs/               # YOLOv8 training runs & results
+```
 
 
 
@@ -228,37 +236,49 @@ You can choose the script based on your preference for accuracy, speed, or model
 
 Run the script corresponding to the model you want to use:
 
+## 📂 Model Weights
+The trained YOLO model weights required for anonymization are already included in the repository under:
+```bash
+license/anonymization/
+│── best_v8.pt   # YOLOv8 weights
+│── best_v10.pt  # YOLOv10 weights
+│── best_v12.pt  # YOLOv12 weights
+```
+You can directly run the anonymization scripts without downloading additional files.
+Each script is already configured to load its corresponding weight file from this folder.
+
 **Using YOLOv8 model:**
 
 Image:
 ```bash
-python anonymization/anonymize_v8_img.py --input anonymization/sample_inputs/input_1.jpg --output anonymization/sample_outputs/output_1.jpg --method blur
+python license/anonymization/anonymize_v8_img.py --input license/anonymization/sample_inputs/input_1.jpg --output license/anonymization/sample_outputs/output_1.jpg --method blur
+
 ```
 Video:
 ```bash
-python anonymization/anonymize_v8_vid.py --input anonymization/sample_inputs/input_1.mp4 --output anonymization/sample_outputs/output_1.mp4 --method blur
+python license/anonymization/anonymize_v8_vid.py --input license/anonymization/sample_inputs/input_1.mp4 --output license/anonymization/sample_outputs/output_1.mp4 --method blur
 ```
 
 **Using YOLOv10 model:**
 
 Image:
 ```bash
-python anonymization/anonymize_v10_img.py --input anonymization/sample_inputs/input_1.jpg --output anonymization/sample_outputs/output_1.jpg --method blur
+python license/anonymization/anonymize_v10_img.py --input license/anonymization/sample_inputs/input_2.jpg --output license/anonymization/sample_outputs/output_2.jpg --method blur
 ```
 Video:
 ```bash
-python anonymization/anonymize_v10_vid.py --input anonymization/sample_inputs/input_1.mp4 --output anonymization/sample_outputs/output_1.mp4 --method blur
+python license/anonymization/anonymize_v10_vid.py --input license/anonymization/sample_inputs/input_2.mp4 --output license/anonymization/sample_outputs/output_2.mp4 --method blur
 ```
 
 **Using YOLOv12 model:**
 
 Image:
 ```bash
-python anonymization/anonymize_v12_img.py --input anonymization/sample_inputs/input_1.jpg --output anonymization/sample_outputs/output_1.jpg --method blur
+python license/anonymization/anonymize_v12_img.py --input license/anonymization/sample_inputs/input_3.jpg --output license/anonymization/sample_outputs/output_3.jpg --method blur
 ```
 Video:
 ```bash
-python anonymization/anonymize_v12_vid.py --input anonymization/sample_inputs/input_1.mp4 --output anonymization/sample_outputs/output_1.mp4 --method blur
+python license/anonymization/anonymize_v12_vid.py --input license/anonymization/sample_inputs/input_3.mp4 --output license/anonymization/sample_outputs/output_3.mp4 --method blur
 ```
 
 Command-line arguments:
@@ -301,9 +321,40 @@ In this project:
 
 This ensures that the license plate is unreadable while the rest of the image or video remains intact.
 
+
+### 📊 Results
+The three YOLO models (YOLOv8, YOLOv10, and YOLOv12) were trained and evaluated on the same license plate detection dataset.
+
+The key evaluation metrics — Precision, Recall, mAP@0.5, and mAP@0.5:0.95 — were computed for each model.
+
+
+## Comparison graph
+
+## Evaluation summary
+| Model   | Precision | Recall | mAP\@0.5 | mAP\@0.5:0.95 |
+| ------- | --------- | ------ | -------- | ------------- |
+| YOLOv8  | 0.93      | 0.94   | 0.93     | 0.92          |
+| YOLOv10 | 0.94      | 0.79   | 0.92     | 0.57          |
+| YOLOv12 | 0.88      | 0.89   | 0.91     | 0.58          |
+
+
+## Observations
+
+- YOLOv8 achieved the highest recall and balanced performance across all metrics, making it suitable for scenarios where minimizing missed detections is critical.
+- YOLOv10 achieved the highest precision, making it ideal when minimizing false positives is the priority, but recall was lower.
+- YOLOv12 performed competitively in recall and mAP@0.5 but slightly lower in precision.
+- mAP@0.5:0.95 scores indicate that YOLOv8 provides the best overall bounding box quality and consistency.
+
+
+### Best Model Recommendation
+
+For license plate anonymization, it is recommended to use YOLOv8 because it offers the most balanced performance between detection accuracy and coverage.
+If your priority is fewer false detections (higher precision), consider YOLOv10 instead.
+
+
 ## 📜 License & Authors
 
-This project is licensed under the **MIT License**.
+**All rights reserved**
 
 ### Authors:
 - Bibikhuteja Soudagar
