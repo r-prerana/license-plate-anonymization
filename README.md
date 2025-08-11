@@ -206,14 +206,20 @@ You can choose the model based on your preference for accuracy, speed, or model 
 Image anonymization:
 
 anonymization/anonymize_v8_img.py — YOLOv8
+
 anonymization/anonymize_v10_img.py — YOLOv10
+
 anonymization/anonymize_v12_img.py — YOLOv12
+
 
 Video anonymization:
 
 anonymization/anonymize_v8_vid.py — YOLOv8
+
 anonymization/anonymize_v10_vid.py — YOLOv10
+
 anonymization/anonymize_v12_vid.py — YOLOv12
+
 
 
 You can choose the script based on your preference for accuracy, speed, or model size.
