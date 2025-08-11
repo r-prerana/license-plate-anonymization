@@ -1,7 +1,12 @@
-# License — License Plate Detection (YOLOv8, YOLOv10, YOLOv12)
+## Project Overview
 
-License plate detection using Ultralytics YOLO models (YOLOv8, YOLOv10, YOLOv12).  
-This repository contains the dataset in YOLO format and the commands/scripts used to train, evaluate, and run inference.
+This repository provides a comprehensive solution for license plate detection and anonymization. It includes:
+
+- **License Plate Detection**: Utilizing YOLOv8, YOLOv10, and YOLOv12 models to accurately detect license plates in images and videos.
+- **Anonymization Techniques**: Implementing methods such as blurring, pixelation, and covering to anonymize detected license plates, ensuring privacy.
+- **Model Comparison**: Evaluating and comparing the performance of different YOLO models to determine the most effective approach for detection and anonymization tasks.
+
+This project aims to facilitate privacy-preserving applications in surveillance, autonomous driving, and public data sharing.
 
 ---
 
@@ -24,16 +29,14 @@ license/
 │ ├── output3.jpg
 |__readme.md
 
-yaml
-Copy code
 
----
 
 ## ⚙️ Requirements / Installation
 
 # License Plate Anonymization using YOLO Models
 
----
+## **LICENCSE PLATE DETECTION**
+
 
 ## Installation
 
@@ -88,7 +91,7 @@ results.png              # Metrics plot
 confusion_matrix.png     # Confusion matrix
 ```
 
-##📊 Model Accuracy & Speed Comparison
+## 📊 Model Accuracy & Speed Comparison
 
 | Model    | mAP@0.5 | mAP@0.5:0.95 | Training Time (100 epochs)     | Inference Speed (ms/img) |
 |----------|---------|--------------|-------------------------------|--------------------------|
@@ -97,7 +100,7 @@ confusion_matrix.png     # Confusion matrix
 | YOLOv12n | 0.9277  | 0.5836       | ~12 hrs (CPU) / ~55 min (GPU) | 10.22                    |
 
 
-##📊 Model Metrics
+## 📊 Model Metrics
 ## YOLOv8 Evaluation Metrics
 
 - TP: 134 | FN: 14 | FP: 11 | TN: 0
@@ -144,7 +147,7 @@ confusion_matrix.png     # Confusion matrix
 | YOLOv12 | `examples/input3.jpg`  | `examples/output3.jpg`   |
 
 
-🔍## Inference 
+## 🔍 Inference 
 Example for YOLOv8
 
 ```powershell
@@ -177,6 +180,114 @@ yolo export model=.\runs\detect\results_v12\weights\best.pt format=onnx
 ```powershell
 yolo task=detect mode=val model=.\runs\detect\results_v8\weights\best.pt data=.\data.yaml save_json=True
 ```
+
+## **ANONYMIZATION**
+
+### Purpose:
+The anonymization module aims to protect privacy by blurring license plates detected in images and videos. This prevents sensitive information from being exposed while still allowing the analysis of scenes or traffic flow.
+
+### How it works: 
+1. Detect license plates using one of the trained YOLO models (YOLOv8, YOLOv10, YOLOv12).  
+2. For each detected license plate, apply an anonymization technique such as:  
+   - Gaussian blur   
+3. Save the processed image or video with anonymized license plates.
+
+The script supports both image and video inputs.
+
+### Anonymization Techniques Used
+
+**Gaussian Blur:** Smooths the license plate area, making the text unreadable while maintaining a natural appearance.  
+
+## Anonymization Scripts
+
+This project supports anonymizing both images and videos using three different YOLO models (YOLOv8, YOLOv10, YOLOv12).
+You can choose the model based on your preference for accuracy, speed, or model size.
+
+Image anonymization:
+
+anonymization/anonymize_v8_img.py — YOLOv8
+anonymization/anonymize_v10_img.py — YOLOv10
+anonymization/anonymize_v12_img.py — YOLOv12
+
+Video anonymization:
+
+anonymization/anonymize_v8_vid.py — YOLOv8
+anonymization/anonymize_v10_vid.py — YOLOv10
+anonymization/anonymize_v12_vid.py — YOLOv12
+
+
+You can choose the script based on your preference for accuracy, speed, or model size.
+
+### Usage Examples
+
+Run the script corresponding to the model you want to use:
+
+Using YOLOv8 model:
+Image:
+```bash
+python anonymization/anonymize_v8_img.py --input anonymization/sample_inputs/input_1.jpg --output anonymization/sample_outputs/output_1.jpg --method blur
+```
+Video:
+```bash
+python anonymization/anonymize_v8_vid.py --input anonymization/sample_inputs/input_1.mp4 --output anonymization/sample_outputs/output_1.mp4 --method blur
+```
+Using YOLOv10 model:
+Image:
+```bash
+python anonymization/anonymize_v10_img.py --input anonymization/sample_inputs/input_1.jpg --output anonymization/sample_outputs/output_1.jpg --method blur
+```
+Video:
+```bash
+python anonymization/anonymize_v10_vid.py --input anonymization/sample_inputs/input_1.mp4 --output anonymization/sample_outputs/output_1.mp4 --method blur
+```
+Using YOLOv12 model:
+Image:
+```bash
+python anonymization/anonymize_v12_img.py --input anonymization/sample_inputs/input_1.jpg --output anonymization/sample_outputs/output_1.jpg --method blur
+```
+Video:
+```bash
+python anonymization/anonymize_v12_vid.py --input anonymization/sample_inputs/input_1.mp4 --output anonymization/sample_outputs/output_1.mp4 --method blur
+```
+Command-line arguments:
+| Argument   | Description                                           | Example                        |
+| ---------- | ----------------------------------------------------- | ------------------------------ |
+| `--input`  | Path to input image or video file                     | `input1.jpg` or `input1.mp4`   |
+| `--output` | Path to save anonymized output                        | `output1.jpg` or `output1.mp4` |
+| `--method` | Anonymization method (`blur`)                         | `blur`                         |
+
+### Sample Inputs and Outputs for images:
+Images:
+| Sl.no | Sample Input                                | Anonymized Output                                  |
+| ------| ------------------------------------------- | -------------------------------------------------- |
+| 1     | `anonymization/sample_inputs/input_1.jpg`   | `anonymization/sample_outputs/output_1.jpg`        |
+| 2     | `anonymization/sample_inputs/input_2.jpg`   | `anonymization/sample_outputs/output_2.jpg`        |
+| 3     | `anonymization/sample_inputs/input_3.jpg`   | `anonymization/sample_outputs/output_3.jpg`        |
+
+Videos:
+| Sl.no | Sample Input                              | Anonymized Output                           |
+| ----- | ----------------------------------------- | ------------------------------------------- |
+| 1     | `anonymization/sample_inputs/input_1.mp4` | `anonymization/sample_outputs/output_1.mp4` |
+| 2     | `anonymization/sample_inputs/input_2.mp4` | `anonymization/sample_outputs/output_2.mp4` |
+| 3     | `anonymization/sample_inputs/input_3.mp4` | `anonymization/sample_outputs/output_3.mp4` |
+
+
+These can be used to test each anonymization script using the sample input images and videos.
+
+
+### Anonymization Method: Gaussian Blur
+
+The anonymization in this project is done using **Gaussian blurring** on detected license plates.  
+
+Gaussian blur is an image processing technique that smooths an image by averaging pixel values with their neighbors, weighted by a Gaussian function.  
+
+In this project:
+- The YOLO model detects the bounding boxes of license plates.
+- The detected regions are extracted as Regions of Interest (ROI).
+- A strong Gaussian blur (e.g., kernel size `(51, 51)`) is applied to the ROI to obscure any identifiable text or details.
+- The blurred ROI is then placed back into the original image or video frame.
+
+This ensures that the license plate is unreadable while the rest of the image or video remains intact.
 
 ## 📜 License & Authors
 
