@@ -330,6 +330,11 @@ The key evaluation metrics — Precision, Recall, mAP@0.5, and mAP@0.5:0.95 — 
 
 ## Comparison graph
 
+
+![Model Comparison](license/examples/model_comparison.jpg)
+
+
+
 ## Evaluation summary
 | Model   | Precision | Recall | mAP\@0.5 | mAP\@0.5:0.95 |
 | ------- | --------- | ------ | -------- | ------------- |
