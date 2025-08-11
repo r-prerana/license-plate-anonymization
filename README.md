@@ -222,7 +222,8 @@ You can choose the script based on your preference for accuracy, speed, or model
 
 Run the script corresponding to the model you want to use:
 
-Using YOLOv8 model:
+**Using YOLOv8 model:**
+
 Image:
 ```bash
 python anonymization/anonymize_v8_img.py --input anonymization/sample_inputs/input_1.jpg --output anonymization/sample_outputs/output_1.jpg --method blur
@@ -231,7 +232,9 @@ Video:
 ```bash
 python anonymization/anonymize_v8_vid.py --input anonymization/sample_inputs/input_1.mp4 --output anonymization/sample_outputs/output_1.mp4 --method blur
 ```
-Using YOLOv10 model:
+
+**Using YOLOv10 model:**
+
 Image:
 ```bash
 python anonymization/anonymize_v10_img.py --input anonymization/sample_inputs/input_1.jpg --output anonymization/sample_outputs/output_1.jpg --method blur
@@ -240,7 +243,9 @@ Video:
 ```bash
 python anonymization/anonymize_v10_vid.py --input anonymization/sample_inputs/input_1.mp4 --output anonymization/sample_outputs/output_1.mp4 --method blur
 ```
-Using YOLOv12 model:
+
+**Using YOLOv12 model:**
+
 Image:
 ```bash
 python anonymization/anonymize_v12_img.py --input anonymization/sample_inputs/input_1.jpg --output anonymization/sample_outputs/output_1.jpg --method blur
@@ -249,6 +254,7 @@ Video:
 ```bash
 python anonymization/anonymize_v12_vid.py --input anonymization/sample_inputs/input_1.mp4 --output anonymization/sample_outputs/output_1.mp4 --method blur
 ```
+
 Command-line arguments:
 | Argument   | Description                                           | Example                        |
 | ---------- | ----------------------------------------------------- | ------------------------------ |
