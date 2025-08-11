@@ -236,7 +236,7 @@ You can choose the script based on your preference for accuracy, speed, or model
 
 Run the script corresponding to the model you want to use:
 
-## 📂 Model Weights
+### 📂 Model Weights
 The trained YOLO model weights required for anonymization are already included in the repository under:
 ```bash
 license/anonymization/
@@ -322,13 +322,13 @@ In this project:
 This ensures that the license plate is unreadable while the rest of the image or video remains intact.
 
 
-### 📊 Results
+## 📊 Results
 The three YOLO models (YOLOv8, YOLOv10, and YOLOv12) were trained and evaluated on the same license plate detection dataset.
 
 The key evaluation metrics — Precision, Recall, mAP@0.5, and mAP@0.5:0.95 — were computed for each model.
 
 
-## Comparison graph
+### Comparison graph
 
 
 ![Model Comparison](license/examples/model_comparison.jpg)
