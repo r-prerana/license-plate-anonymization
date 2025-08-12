@@ -38,10 +38,11 @@ This project aims to facilitate privacy-preserving applications in surveillance,
 ```
 
 
+# License Plate Anonymization using YOLO Models
+
 
 ## ⚙️ Requirements / Installation
 
-# License Plate Anonymization using YOLO Models
 
 ## **LICENCSE PLATE DETECTION**
 
@@ -101,49 +102,42 @@ confusion_matrix.png     # Confusion matrix
 
 ## 📊 Model Accuracy & Speed Comparison
 
-| Model    | mAP@0.5 | mAP@0.5:0.95 | Training Time (100 epochs)     | Inference Speed (ms/img) |
-|----------|---------|--------------|-------------------------------|--------------------------|
-| YOLOv8n  | 0.933   | —            | ~9 hrs (CPU) / ~45 min (GPU)  | —                        |
-| YOLOv10n | 0.918   | 0.570        | ~10 hrs (CPU) / ~50 min (GPU) | —                        |
-| YOLOv12n | 0.9277  | 0.5836       | ~12 hrs (CPU) / ~55 min (GPU) | 10.22                    |
+| Model    | mAP@0.5 | mAP@0.5:0.95 | Training Time (100 epochs)    |
+|----------|---------|--------------|-------------------------------|
+| YOLOv8n  | 0.933   | 0.920        | ~9 hrs (CPU) / ~45 min (GPU)  |                     
+| YOLOv10n | 0.918   | 0.570        | ~10 hrs (CPU) / ~50 min (GPU) |
+| YOLOv12n | 0.9277  | 0.5836       | ~12 hrs (CPU) / ~55 min (GPU) |
 
 
 ## 📊 Model Metrics
 ## YOLOv8 Evaluation Metrics
 
-- TP: 134 | FN: 14 | FP: 11 | TN: 0
-- TP Rate (Recall): 0.92 | FN Rate: 0.08 | FP Rate: 1.00 | TN Rate: 0.00
-- Precision (number_plate): 0.93
-- Precision (all classes): 1.00 @ conf = 0.924
-- Recall (all classes): 0.94 @ conf = 0.000
-- F1-Score (all classes): 0.91 @ conf = 0.342
-- mAP@0.5 (number_plate): 0.933
-- mAP@0.5 (all classes): 0.933
+| Metric        | Value |
+| ------------- | ----- |
+| Precision     | 0.93  |
+| Recall        | 0.92  |
+| mAP\@0.5      | 0.933 |
+| mAP\@0.5:0.95 | 0.92  |
+
 
 
 ## YOLOv10 Evaluation Metrics
 
-| Metric        | Value | Meaning                                         |
-|---------------|-------|------------------------------------------------|
-| Precision (P) | 0.942 | 94.2% detected objects are correct (low FP).  |
-| Recall (R)    | 0.791 | 79.1% actual objects detected (some FN).       |
-| mAP@0.5       | 0.918 | High accuracy at IoU 0.5                        |
-| mAP@0.5:0.95  | 0.570 | Good generalization across stricter IoU levels|
+| Metric        | Value |
+| ------------- | ----- |
+| Precision     | 0.942 |
+| Recall        | 0.791 |
+| mAP\@0.5      | 0.918 |
+| mAP\@0.5:0.95 | 0.570 |
 
 ## YOLOv12 Evaluation Metrics
 
-- Precision: 0.8841
-- Recall: 0.8946
-- mAP@0.5: 0.9277
-- mAP@0.5:0.95: 0.5836
-- Inference Time: 10.22 ms/image
-
-### Speed Breakdown:
-
-- Preprocess: 0.29 ms/image
-- Inference: 10.22 ms/image
-- Loss: 0.00 ms/image
-- Postprocess: 3.71 ms/image
+| Metric        | Value  |
+| ------------- | ------ |
+| Precision     | 0.8841 |
+| Recall        | 0.8946 |
+| mAP\@0.5      | 0.9277 |
+| mAP\@0.5:0.95 | 0.5836 |
 
 
 ## 🖼 Results & Sample Predictions
@@ -365,7 +359,7 @@ If your priority is fewer false detections (higher precision), consider YOLOv10 
 - Bibikhuteja Soudagar
 - R Prerana
 - Megha T
-- Sonali Chandake
+- Sonali Chendake
 
 ### Contact:
 - bibikhutejasoudagar21@gmail.com
