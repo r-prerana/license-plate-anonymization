@@ -236,12 +236,12 @@ Each script is already configured to load its corresponding weight file from thi
 
 **Using YOLOv8 model:**
 
-Image:
+*Image:*
 ```bash
 python license/anonymization/anonymize_v8_img.py --input license/anonymization/sample_inputs/input_1.jpg --output license/anonymization/sample_outputs/output_1.jpg --method blur
 
 ```
-Video:
+*Video:*
 ```bash
 python license/anonymization/anonymize_v8_vid.py --input license/anonymization/sample_inputs/input_1.mp4 --output license/anonymization/sample_outputs/output_1.mp4 --method blur
 ```
