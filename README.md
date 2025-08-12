@@ -41,13 +41,10 @@ This project aims to facilitate privacy-preserving applications in surveillance,
 # License Plate Anonymization using YOLO Models
 
 
-## ⚙️ Requirements / Installation
-
-
 ## **LICENCSE PLATE DETECTION**
 
 
-## Installation
+## ⚙️ Requirements / Installation
 
 ```bash
 pip install --upgrade pip
@@ -205,26 +202,22 @@ The script supports both image and video inputs.
 This project supports anonymizing both images and videos using three different YOLO models (YOLOv8, YOLOv10, YOLOv12).
 You can choose the model based on your preference for accuracy, speed, or model size.
 
-Image anonymization:
+**Image anonymization:**
 
-anonymization/anonymize_v8_img.py — YOLOv8
-
-anonymization/anonymize_v10_img.py — YOLOv10
-
-anonymization/anonymize_v12_img.py — YOLOv12
+- anonymization/anonymize_v8_img.py — YOLOv8
+- anonymization/anonymize_v10_img.py — YOLOv10
+- anonymization/anonymize_v12_img.py — YOLOv12
 
 
-Video anonymization:
+**Video anonymization:**
 
-anonymization/anonymize_v8_vid.py — YOLOv8
-
-anonymization/anonymize_v10_vid.py — YOLOv10
-
-anonymization/anonymize_v12_vid.py — YOLOv12
-
+- anonymization/anonymize_v8_vid.py — YOLOv8
+- anonymization/anonymize_v10_vid.py — YOLOv10
+- anonymization/anonymize_v12_vid.py — YOLOv12
 
 
 You can choose the script based on your preference for accuracy, speed, or model size.
+
 
 ### Usage Examples
 
@@ -255,22 +248,22 @@ python license/anonymization/anonymize_v8_vid.py --input license/anonymization/s
 
 **Using YOLOv10 model:**
 
-Image:
+*Image:*
 ```bash
 python license/anonymization/anonymize_v10_img.py --input license/anonymization/sample_inputs/input_2.jpg --output license/anonymization/sample_outputs/output_2.jpg --method blur
 ```
-Video:
+*Video:*
 ```bash
 python license/anonymization/anonymize_v10_vid.py --input license/anonymization/sample_inputs/input_2.mp4 --output license/anonymization/sample_outputs/output_2.mp4 --method blur
 ```
 
 **Using YOLOv12 model:**
 
-Image:
+*Image:*
 ```bash
 python license/anonymization/anonymize_v12_img.py --input license/anonymization/sample_inputs/input_3.jpg --output license/anonymization/sample_outputs/output_3.jpg --method blur
 ```
-Video:
+*Video:*
 ```bash
 python license/anonymization/anonymize_v12_vid.py --input license/anonymization/sample_inputs/input_3.mp4 --output license/anonymization/sample_outputs/output_3.mp4 --method blur
 ```
@@ -283,14 +276,16 @@ Command-line arguments:
 | `--method` | Anonymization method (`blur`)                         | `blur`                         |
 
 ### Sample Inputs and Outputs for images:
-Images:
+
+**Images:**
 | Sl.no | Sample Input                                | Anonymized Output                                  |
 | ------| ------------------------------------------- | -------------------------------------------------- |
 | 1     | `anonymization/sample_inputs/input_1.jpg`   | `anonymization/sample_outputs/output_1.jpg`        |
 | 2     | `anonymization/sample_inputs/input_2.jpg`   | `anonymization/sample_outputs/output_2.jpg`        |
 | 3     | `anonymization/sample_inputs/input_3.jpg`   | `anonymization/sample_outputs/output_3.jpg`        |
 
-Videos:
+
+**Videos:**
 | Sl.no | Sample Input                              | Anonymized Output                           |
 | ----- | ----------------------------------------- | ------------------------------------------- |
 | 1     | `anonymization/sample_inputs/input_1.mp4` | `anonymization/sample_outputs/output_1.mp4` |
