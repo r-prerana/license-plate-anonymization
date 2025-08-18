@@ -60,6 +60,20 @@ pip install ultralytics
 ```
 yolo version
 ```
+
+## 📂 Dataset
+
+We used the [License Plate Detection Dataset (ANPR, YOLO Format)](https://www.kaggle.com/datasets/harshitsingh09/license-plate-detection-dataset-anpr-yolo-format) by **Harshit Singh** from Kaggle.
+
+**What's Inside:**
+- 🖼️ 661 total images  
+- 🏷️ 658 annotation files in YOLO format  
+- 🆔 Single class: `license plate`  
+- 📁 Structured for direct use with YOLOv8  
+
+> ⚠️ All rights for the dataset belong to the original authors. We only used it for research and academic purposes.
+
+
 🗂 Prepare Dataset (YOLO Format)
 Example data.yaml file:
 
@@ -225,24 +239,21 @@ Command-line arguments:
 | `--output` | Path to save anonymized output                        | `output1.jpg` or `output1.mp4` |
 | `--method` | Anonymization method (`blur`)                         | `blur`                         |
 
-### Sample Inputs and Outputs for images:
+## Sample Outputs:
 
-**Anonymized Images:**
+### Anonymized Images:
 
-<img src="license/anonymization/sample_outputs/output_1.jpg" width="500">              <img src="license/anonymization/sample_outputs/output_2.jpg" width="500">
-<img src="license/anonymization/sample_outputs/output_3.jpg" width="500">              <img src="license/anonymization/sample_outputs/output_4.jpg" width="500">
+<img src="license/anonymization/sample_outputs/output_1.jpg" width="400">              <img src="license/anonymization/sample_outputs/output_2.jpg" width="400">
+<img src="license/anonymization/sample_outputs/output_3.jpg" width="400">              <img src="license/anonymization/sample_outputs/output_4.jpg" width="400">
 
 
-**Anonyimized Videos**
-
-- ![Output Video 1](license/anonymization/sample_outputs/output_1.mp4)  
-- ![Output Video 2](license/anonymization/sample_outputs/output_2.mp4)  
-- ![Output Video 3](license/anonymization/sample_outputs/output_3.mp4)
+### Anonyimized Videos:
 
 
 
+ <img src="license/anonymization/sample_outputs/video_1.gif" width="300"> 
+ <img src="license/anonymization/sample_outputs/video_2.gif" width="500"> 
 
-These can be used to test each anonymization script using the sample input images and videos.
 
 
 ### Anonymization Method: Gaussian Blur
