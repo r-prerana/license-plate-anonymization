@@ -112,11 +112,14 @@ confusion_matrix.png     # Confusion matrix
 
 ## 🖼 Results & Sample Predictions
 
-| Model   | Input                 | Output                   |
-|---------|-----------------------|--------------------------|
-| YOLOv8  | `examples/input1.jpg`  | `examples/output1.jpg`   |
-| YOLOv10 | `examples/input2.jpg`  | `examples/output2.jpg`   |
-| YOLOv12 | `examples/input3.jpg`  | `examples/output3.jpg`   |
+## Sample Results
+
+| Sl.no | Input images                                        | Detected Outputs                                     |
+| ----- | --------------------------------------------------- | ---------------------------------------------------- |
+| 1     | <img src="license/examples/input1.jpg" width="400"> | <img src="license/examples/output1.jpg" width="400"> |
+| 2     | <img src="license/examples/input2.jpg" width="400"> | <img src="license/examples/output2.jpg" width="400"> |
+| 3     | <img src="license/examples/input3.jpg" width="400"> | <img src="license/examples/output3.jpg" width="400"> |
+
 
 
 ## 🔍 Inference 
@@ -224,20 +227,19 @@ Command-line arguments:
 
 ### Sample Inputs and Outputs for images:
 
-**Images:**
-| Sl.no | Sample Input                                | Anonymized Output                                  |
-| ------| ------------------------------------------- | -------------------------------------------------- |
-| 1     | `anonymization/sample_inputs/input_1.jpg`   | `anonymization/sample_outputs/output_1.jpg`        |
-| 2     | `anonymization/sample_inputs/input_2.jpg`   | `anonymization/sample_outputs/output_2.jpg`        |
-| 3     | `anonymization/sample_inputs/input_3.jpg`   | `anonymization/sample_outputs/output_3.jpg`        |
+**Anonymized Images:**
+
+<img src="license/anonymization/sample_outputs/output_1.jpg" width="500">              <img src="license/anonymization/sample_outputs/output_2.jpg" width="500">
+<img src="license/anonymization/sample_outputs/output_3.jpg" width="500">              <img src="license/anonymization/sample_outputs/output_4.jpg" width="500">
 
 
-**Videos:**
-| Sl.no | Sample Input                              | Anonymized Output                           |
-| ----- | ----------------------------------------- | ------------------------------------------- |
-| 1     | `anonymization/sample_inputs/input_1.mp4` | `anonymization/sample_outputs/output_1.mp4` |
-| 2     | `anonymization/sample_inputs/input_2.mp4` | `anonymization/sample_outputs/output_2.mp4` |
-| 3     | `anonymization/sample_inputs/input_3.mp4` | `anonymization/sample_outputs/output_3.mp4` |
+**Anonyimized Videos**
+
+- ![Output Video 1](license/anonymization/sample_outputs/output_1.mp4)  
+- ![Output Video 2](license/anonymization/sample_outputs/output_2.mp4)  
+- ![Output Video 3](license/anonymization/sample_outputs/output_3.mp4)
+
+
 
 
 These can be used to test each anonymization script using the sample input images and videos.
