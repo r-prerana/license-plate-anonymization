@@ -1,5 +1,10 @@
 ## Project Overview
 
+# 🚘 Development of an Application for Blurring and Anonymizing Vehicle License Plates to Ensure Privacy
+
+This project implements automatic license plate detection using YOLOv8, YOLOv10, and YOLOv12. The detected plates are blurred/anonymized to protect privacy.
+We also compare the performance of these YOLO models based on accuracy and speed.
+
 This repository provides a comprehensive solution for license plate detection and anonymization. It includes:
 
 - **License Plate Detection**: Utilizing YOLOv8, YOLOv10, and YOLOv12 models to accurately detect license plates in images and videos.
@@ -38,7 +43,6 @@ This project aims to facilitate privacy-preserving applications in surveillance,
 ```
 
 
-# License Plate Anonymization using YOLO Models
 
 
 ## **LICENCSE PLATE DETECTION**
@@ -66,27 +70,25 @@ val: images/val
 nc: 1
 names: ['license_plate']
 ```
-🚀 Training
 
-YOLOv8
-```powershell
-yolo task=detect mode=train model=yolov8n.pt data=.\data.yaml epochs=100 imgsz=640 project=.\runs name=results_v8
+## 🚀 Training
+
+Run the following command to train:
+
+```bash
+yolo task=detect mode=train model=<model>.pt data=./data.yaml epochs=100 imgsz=640 project=./runs name=<results_name>
 ```
 
-YOLOv10
-```powershell
-yolo task=detect mode=train model=yolov10n.pt data=.\data.yaml epochs=100 imgsz=640 project=.\runs name=results_v10
-```
+- Replace <model> with yolov8n.pt, yolov10n.pt, or yolov12n.pt.
+- Replace <results_name> with results_v8, results_v10, or results_v12.
 
-YOLOv12
-```powershell
-yolo task=detect mode=train model=yolov12n.pt data=.\data.yaml epochs=100 imgsz=640 project=.\runs name=results_v12
-```
+
+
 📁 Output Location
 Each run saves to:
 
 ```text
-.\runs\detect\<name>\
+./runs/detect/<results_name>/
 ```
 
 Inside this folder, you'll find:
@@ -97,44 +99,15 @@ results.png              # Metrics plot
 confusion_matrix.png     # Confusion matrix
 ```
 
+
 ## 📊 Model Accuracy & Speed Comparison
 
-| Model    | mAP@0.5 | mAP@0.5:0.95 | Training Time (100 epochs)    |
-|----------|---------|--------------|-------------------------------|
-| YOLOv8n  | 0.933   | 0.920        | ~9 hrs (CPU) / ~45 min (GPU)  |                     
-| YOLOv10n | 0.918   | 0.570        | ~10 hrs (CPU) / ~50 min (GPU) |
-| YOLOv12n | 0.9277  | 0.5836       | ~12 hrs (CPU) / ~55 min (GPU) |
+| Model    | Precision | Recall | mAP\@0.5 | mAP\@0.5:0.95 | Training Time (GPU, 100 epochs) |
+| -------- | --------- | ------ | -------- | ------------- | ------------------------------- |
+| YOLOv8n  | 0.930     | 0.920  | 0.933    | 0.920         | \~45 min                        |
+| YOLOv10n | 0.942     | 0.791  | 0.918    | 0.570         | \~50 min                        |
+| YOLOv12n | 0.884     | 0.895  | 0.928    | 0.584         | \~55 min                        |
 
-
-## 📊 Model Metrics
-## YOLOv8 Evaluation Metrics
-
-| Metric        | Value |
-| ------------- | ----- |
-| Precision     | 0.93  |
-| Recall        | 0.92  |
-| mAP\@0.5      | 0.933 |
-| mAP\@0.5:0.95 | 0.92  |
-
-
-
-## YOLOv10 Evaluation Metrics
-
-| Metric        | Value |
-| ------------- | ----- |
-| Precision     | 0.942 |
-| Recall        | 0.791 |
-| mAP\@0.5      | 0.918 |
-| mAP\@0.5:0.95 | 0.570 |
-
-## YOLOv12 Evaluation Metrics
-
-| Metric        | Value  |
-| ------------- | ------ |
-| Precision     | 0.8841 |
-| Recall        | 0.8946 |
-| mAP\@0.5      | 0.9277 |
-| mAP\@0.5:0.95 | 0.5836 |
 
 
 ## 🖼 Results & Sample Predictions
@@ -147,38 +120,33 @@ confusion_matrix.png     # Confusion matrix
 
 
 ## 🔍 Inference 
-Example for YOLOv8
+To run inference on an image:
 
-```powershell
-yolo task=detect mode=predict model=.\runs\detect\results_v8\weights\best.pt source=.\examples\input1.jpg save=True
+```bash
+yolo task=detect mode=predict model=./runs/detect/<results_name>/weights/best.pt source=./examples/input1.jpg save=True
 ```
-For YOLOv10 and YOLOv12, replace results_v8 with results_v10 or results_v12 respectively.
+Replace <results_name> with results_v8, results_v10, or results_v12.
+
 
 ## Export Model (ONNX Format)
 
-### YOLOv8
+Export the trained model to ONNX format:
 
-```powershell
-yolo export model=.\runs\detect\results_v8\weights\best.pt format=onnx
+```bash
+yolo export model=./runs/detect/<results_name>/weights/best.pt format=onnx
 ```
+This generates a .onnx file for deployment in ONNX Runtime, TensorRT, or OpenCV.
 
-### YOLOv10
-
-```powershell
-yolo export model=.\runs\detect\results_v10\weights\best.pt format=onnx
-```
-
-### YOLOv12
-
-```powershell
-yolo export model=.\runs\detect\results_v12\weights\best.pt format=onnx
-```
 
 ## 📊 Evaluation
 
-```powershell
-yolo task=detect mode=val model=.\runs\detect\results_v8\weights\best.pt data=.\data.yaml save_json=True
+Validate model performance:
+
+```bash
+yolo task=detect mode=val model=./runs/detect/<results_name>/weights/best.pt data=./data.yaml save_json=True
 ```
+
+
 
 ## **ANONYMIZATION**
 
@@ -234,38 +202,17 @@ license/anonymization/
 You can directly run the anonymization scripts without downloading additional files.
 Each script is already configured to load its corresponding weight file from this folder.
 
-**Using YOLOv8 model:**
+Run the anonymization scripts by selecting required YOLO version (`v8`, `v10`, or `v12`).  
+Just replace `<version>` with the desired model version.
 
-*Image:*
+### 🖼 Image Anonymization
 ```bash
-python license/anonymization/anonymize_v8_img.py --input license/anonymization/sample_inputs/input_1.jpg --output license/anonymization/sample_outputs/output_1.jpg --method blur
-
-```
-*Video:*
-```bash
-python license/anonymization/anonymize_v8_vid.py --input license/anonymization/sample_inputs/input_1.mp4 --output license/anonymization/sample_outputs/output_1.mp4 --method blur
+python license/anonymization/anonymize_<version>_img.py --input license/anonymization/sample_inputs/input.jpg --output license/anonymization/sample_outputs/output.jpg --method blur
 ```
 
-**Using YOLOv10 model:**
-
-*Image:*
+### 🎥 Video Anonymization
 ```bash
-python license/anonymization/anonymize_v10_img.py --input license/anonymization/sample_inputs/input_2.jpg --output license/anonymization/sample_outputs/output_2.jpg --method blur
-```
-*Video:*
-```bash
-python license/anonymization/anonymize_v10_vid.py --input license/anonymization/sample_inputs/input_2.mp4 --output license/anonymization/sample_outputs/output_2.mp4 --method blur
-```
-
-**Using YOLOv12 model:**
-
-*Image:*
-```bash
-python license/anonymization/anonymize_v12_img.py --input license/anonymization/sample_inputs/input_3.jpg --output license/anonymization/sample_outputs/output_3.jpg --method blur
-```
-*Video:*
-```bash
-python license/anonymization/anonymize_v12_vid.py --input license/anonymization/sample_inputs/input_3.mp4 --output license/anonymization/sample_outputs/output_3.mp4 --method blur
+python license/anonymization/anonymize_<version>_vid.py --input license/anonymization/sample_inputs/input.mp4 --output license/anonymization/sample_outputs/output.mp4 --method blur
 ```
 
 Command-line arguments:
@@ -342,7 +289,7 @@ The key evaluation metrics — Precision, Recall, mAP@0.5, and mAP@0.5:0.95 — 
 
 ### Best Model Recommendation
 
-For license plate anonymization, it is recommended to use YOLOv8 because it offers the most balanced performance between detection accuracy and coverage.
+For license plate anonymization, it is recommended to use **YOLOv8** because it offers the most balanced performance between detection accuracy and coverage.
 If your priority is fewer false detections (higher precision), consider YOLOv10 instead.
 
 
