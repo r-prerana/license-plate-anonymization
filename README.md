@@ -64,6 +64,7 @@ yolo version
 ## 📂 Dataset
 
 We used the " https://www.kaggle.com/datasets/fareselmenshawii/license-plate-dataset"  dataset from Kaggle.
+
 **What's Inside:**
 - 🖼️ Train: This subset contains 4,300 carefully selected images, ideal for training license plate detection models.
 - 🖼️ Validation (Val): The "val" subset consists of 1,000 images, providing a robust basis for model performance evaluation during development. 
