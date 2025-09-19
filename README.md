@@ -63,11 +63,11 @@ yolo version
 
 ## 📂 Dataset
 
-We used the [License Plate Detection Dataset (ANPR, YOLO Format)](https://www.kaggle.com/datasets/harshitsingh09/license-plate-detection-dataset-anpr-yolo-format) by **Harshit Singh** from Kaggle.
-
+We used the " https://www.kaggle.com/datasets/fareselmenshawii/license-plate-dataset"  dataset from Kaggle.
 **What's Inside:**
-- 🖼️ 661 total images  
-- 🏷️ 658 annotation files in YOLO format  
+- 🖼️ Train: This subset contains 4,300 carefully selected images, ideal for training license plate detection models.
+- 🖼️ Validation (Val): The "val" subset consists of 1,000 images, providing a robust basis for model performance evaluation during development. 
+- 🏷️ Annotation files in YOLO format  
 - 🆔 Single class: `license plate`  
 - 📁 Structured for direct use with YOLOv8  
 
